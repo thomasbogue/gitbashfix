@@ -12,3 +12,5 @@ This file checks to make sure the user is running Windows, and if so appends fou
 
 ## Known issues
 If the user's home folder isn't in c:\Users, there is likely to be an issue.  Code will abort in this case.
+
+If this script is run multiple times the lines will be added multiple times as well.  This might affect startup times for git-bash, but shouldn't cause any errors.
