@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import os
 import sys
 
 
-# In[3]:
+# In[2]:
 
 
 # Check to see if current OS is windows.  If not no fix is required, so terminate
@@ -18,14 +18,21 @@ if platform.system() != "Windows":
     exit(-1)
 
 
-# In[4]:
+# In[3]:
 
 
 # The user's home folder is stored in the environment variable HOME.  Grab this and store it in a variable
-home_folder = os.environ['HOME']
+import pathlib
+home_folder = stpathlib.Path.home()
 
 
-# In[5]:
+# In[6]:
+
+
+str(home_folder)
+
+
+# In[4]:
 
 
 # make a list of the different parts of the home folder
@@ -34,13 +41,13 @@ home_folder_parts = home_folder.split('\\')
 username = home_folder_parts[-1]
 
 
-# In[7]:
+# In[ ]:
 
 
 home_folder_parts[1].upper()
 
 
-# In[11]:
+# In[ ]:
 
 
 # check to make sure that home folder is in c:/Users -- if not code needs to be improved
@@ -49,7 +56,7 @@ if home_folder_parts[0].upper() != "C:" or home_folder_parts[1].upper() != "USER
     exit(-3)
 
 
-# In[6]:
+# In[ ]:
 
 
 # the file we need to modify is called .bashrc.  To implement the fix we need to add lines that look like:
@@ -63,7 +70,7 @@ import pathlib
 bashrc_filename = pathlib.Path(f"{home_folder}/.bashrc")
 
 
-# In[7]:
+# In[ ]:
 
 
 # open the file and append the lines
@@ -76,7 +83,7 @@ with open(bashrc_filename, "a", newline="\n") as bashrc:
     exit(0)
 
 
-# In[8]:
+# In[ ]:
 
 
 # this section of code should only be reached if the above section failed, i.e. if there was a file I/O error
