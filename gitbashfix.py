@@ -23,16 +23,10 @@ if platform.system() != "Windows":
 
 # The user's home folder is stored in the environment variable HOME.  Grab this and store it in a variable
 import pathlib
-home_folder = stpathlib.Path.home()
+home_folder = str(pathlib.Path.home())
 
 
-# In[6]:
-
-
-str(home_folder)
-
-
-# In[4]:
+# In[5]:
 
 
 # make a list of the different parts of the home folder
@@ -41,13 +35,7 @@ home_folder_parts = home_folder.split('\\')
 username = home_folder_parts[-1]
 
 
-# In[ ]:
-
-
-home_folder_parts[1].upper()
-
-
-# In[ ]:
+# In[7]:
 
 
 # check to make sure that home folder is in c:/Users -- if not code needs to be improved
@@ -56,7 +44,7 @@ if home_folder_parts[0].upper() != "C:" or home_folder_parts[1].upper() != "USER
     exit(-3)
 
 
-# In[ ]:
+# In[8]:
 
 
 # the file we need to modify is called .bashrc.  To implement the fix we need to add lines that look like:
@@ -70,7 +58,7 @@ import pathlib
 bashrc_filename = pathlib.Path(f"{home_folder}/.bashrc")
 
 
-# In[ ]:
+# In[9]:
 
 
 # open the file and append the lines
@@ -83,7 +71,7 @@ with open(bashrc_filename, "a", newline="\n") as bashrc:
     exit(0)
 
 
-# In[ ]:
+# In[10]:
 
 
 # this section of code should only be reached if the above section failed, i.e. if there was a file I/O error
